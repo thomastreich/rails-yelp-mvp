@@ -1,5 +1,10 @@
-<h1>My Restaurants</h1>
-
-<%=@restaurants.each do |restaurant| %>
-<li><%= @restaurant.name %></li>
-<% end %>
+<div class="list-group">
+  <h1>My Restaurants</h1>
+  <% @restaurants.each do |restaurant| %>
+  <li class="list-group-item"><%= restaurant.name %></li>
+<%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete, data: {confirm:'Are you sure?'} %>
+  <% end %>
+</div>
+<div class="mx auto btn-outline-primary mt-3 text-center pl-6 width: 200px">
+<%= link_to "Create a new Restaurant", new_restaurant_path %>
+</div>
